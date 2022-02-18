@@ -10,11 +10,11 @@ internal object ImageData {
 
     @DrawableRes
     val IMAGE_DRAWABLES = intArrayOf(
-            R.drawable.ic_baseline_thumb_up_24,
-            R.drawable.ic_baseline_thumb_up,
-            R.drawable.ic_baseline_account_circle_24,
-            R.drawable.ic_baseline_toys_24,
-            R.drawable.ic_baseline_arrow_back_24,
-            R.drawable.ic_launcher_foreground,
+            R.drawable.dog1,
+            R.drawable.cat,
+            R.drawable.cat2,
+            R.drawable.dog2,
+            R.drawable.cat3,
+            R.drawable.dog3
     )
 }
