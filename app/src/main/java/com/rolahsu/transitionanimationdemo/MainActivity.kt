@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.core.view.ViewCompat
+import com.rolahsu.transitionanimationdemo.fragment.FragmentContainer
 import com.rolahsu.transitionanimationdemo.fragment.GridFragment
 import com.rolahsu.transitionanimationdemo.fragment.StartFragment
+import com.rolahsu.transitionanimationdemo.fragment.easy.AFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,8 +27,14 @@ class MainActivity : AppCompatActivity() {
 
 
         // Grid Layout
-        supportFragmentManager.beginTransaction()
+        /*supportFragmentManager.beginTransaction()
             .add(R.id.container_view, GridFragment())
+            .commit()*/
+
+
+        // easy sample
+        supportFragmentManager.beginTransaction()
+            .add(R.id.container_view, FragmentContainer())
             .commit()
     }
 }
