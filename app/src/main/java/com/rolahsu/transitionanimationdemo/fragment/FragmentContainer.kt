@@ -13,10 +13,13 @@ import com.rolahsu.transitionanimationdemo.B_IMAGE
 import com.rolahsu.transitionanimationdemo.R
 import com.rolahsu.transitionanimationdemo.fragment.easy.AFragment
 import com.rolahsu.transitionanimationdemo.fragment.easy.BFragment
+import com.rolahsu.transitionanimationdemo.fragment.recyclerview.GridFragment
 
 class FragmentContainer : Fragment() {
 
     lateinit var easySampleBtn: Button
+    lateinit var recyclerViewSampleBtn: Button
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_container, container, false)
@@ -26,6 +29,8 @@ class FragmentContainer : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         easySampleBtn = view.findViewById(R.id.easySampleBtn)
+        recyclerViewSampleBtn = view.findViewById(R.id.recyclerViewSampleBtn)
+
         easySampleBtn.setOnClickListener {
             val childManager = parentFragment?.childFragmentManager ?: childFragmentManager
             val navigatedFragment = AFragment()
@@ -34,6 +39,19 @@ class FragmentContainer : Fragment() {
                 add(R.id.fragment_container, navigatedFragment, navigatedFragment.javaClass.name)
                 addToBackStack(navigatedFragment.javaClass.name)
                 easySampleBtn.isVisible = false
+                recyclerViewSampleBtn.isVisible = false
+            }.commit()
+        }
+
+        recyclerViewSampleBtn.setOnClickListener {
+            val childManager = parentFragment?.childFragmentManager ?: childFragmentManager
+            val navigatedFragment = GridFragment()
+
+            childManager.beginTransaction().apply {
+                add(R.id.fragment_container, navigatedFragment, navigatedFragment.javaClass.name)
+                addToBackStack(navigatedFragment.javaClass.name)
+                easySampleBtn.isVisible = false
+                recyclerViewSampleBtn.isVisible = false
             }.commit()
         }
     }

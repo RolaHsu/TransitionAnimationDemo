@@ -32,16 +32,15 @@ class AFragment : Fragment() {
             val childManager = parentFragment?.childFragmentManager ?: childFragmentManager
             val topFragment = childManager.fragments.lastOrNull()
             val navigatedFragment = BFragment().apply {
-                sharedElementEnterTransition = TransitionInflater.from(this@AFragment.requireContext()).inflateTransition(R.transition.shared_image)
-                sharedElementReturnTransition = TransitionInflater.from(this@AFragment.requireContext()).inflateTransition(R.transition.shared_image)
-                enterTransition = Fade()
+
             }
             exitTransition = Fade()
 
 
             childManager.beginTransaction().apply {
+                setCustomAnimations(R.anim.right_in, R.anim.stay, R.anim.stay, R.anim.right_out)
                 addSharedElement(aImage, B_IMAGE)
-                replace(R.id.fragment_container, navigatedFragment, navigatedFragment.javaClass.name)
+                add(R.id.fragment_container, navigatedFragment, navigatedFragment.javaClass.name)
                 addToBackStack(navigatedFragment.javaClass.name)
                 if (topFragment != null) {
                     Log.d("xxx", "topFragment = $topFragment")

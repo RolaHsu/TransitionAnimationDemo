@@ -2,12 +2,7 @@ package com.rolahsu.transitionanimationdemo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
-import androidx.core.view.ViewCompat
 import com.rolahsu.transitionanimationdemo.fragment.FragmentContainer
-import com.rolahsu.transitionanimationdemo.fragment.GridFragment
-import com.rolahsu.transitionanimationdemo.fragment.StartFragment
-import com.rolahsu.transitionanimationdemo.fragment.easy.AFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,6 +1,8 @@
 package com.rolahsu.transitionanimationdemo.fragment.easy
 
 import android.os.Bundle
+import android.transition.Fade
+import android.transition.TransitionInflater
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +18,13 @@ class BFragment : Fragment() {
 
     lateinit var bImage: ImageView
     lateinit var back: ImageView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        sharedElementEnterTransition = TransitionInflater.from(this.requireContext()).inflateTransition(R.transition.shared_image)
+        sharedElementReturnTransition = TransitionInflater.from(this.requireContext()).inflateTransition(R.transition.shared_image)
+        enterTransition = Fade()
+    }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_b, container, false)
