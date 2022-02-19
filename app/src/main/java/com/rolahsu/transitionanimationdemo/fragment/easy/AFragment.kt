@@ -41,7 +41,7 @@ class AFragment : Fragment() {
 
             childManager.beginTransaction().apply {
                 addSharedElement(aImage, B_IMAGE)
-                add(R.id.fragment_container, navigatedFragment, navigatedFragment.javaClass.name)
+                replace(R.id.fragment_container, navigatedFragment, navigatedFragment.javaClass.name)
                 addToBackStack(navigatedFragment.javaClass.name)
                 if (topFragment != null) {
                     Log.d("xxx", "topFragment = $topFragment")

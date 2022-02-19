@@ -27,7 +27,7 @@ class BFragment : Fragment() {
         back = view.findViewById(R.id.back)
 
         bImage.transitionName = B_IMAGE
-        bImage.setImageResource(R.drawable.dog3)
+        bImage.setImageResource(R.drawable.dog1)
 
         back.setOnClickListener {
             parentFragment?.childFragmentManager?.popBackStack()
