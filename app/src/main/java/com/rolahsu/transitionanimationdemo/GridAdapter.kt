@@ -28,24 +28,19 @@ class GridViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val imageView: ImageView = view.findViewById(R.id.imageView)
 
     fun bind(holder: GridViewHolder, listener: GridAdapterInterface) {
-        setImage(listener)
+        imageView.setImageResource(IMAGE_DRAWABLES[adapterPosition])
+        listener.onImageLoadCompleted(adapterPosition)
+
         ViewCompat.setTransitionName(imageView, adapterPosition.toString())
         itemView.setOnClickListener {
             listener.onItemClicked(holder, adapterPosition)
         }
     }
-
-    private fun setImage(listener: GridAdapterInterface) {
-
-        imageView.setImageResource(IMAGE_DRAWABLES[adapterPosition])
-//        listener.onImageLoadCompleted()
-
-    }
 }
 
 interface GridAdapterInterface {
     fun onItemClicked(holder: GridViewHolder, position: Int)
-    fun onImageLoadCompleted()
+    fun onImageLoadCompleted(position: Int)
 }
 
 

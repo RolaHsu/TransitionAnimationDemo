@@ -3,6 +3,7 @@ package com.rolahsu.transitionanimationdemo.fragment.recyclerview
 import android.os.Bundle
 import android.transition.Fade
 import android.transition.TransitionInflater
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,6 +41,16 @@ class LargeFragment : Fragment() {
         val position = arguments?.getInt(POSITION) ?: return
         imageView.setImageResource(IMAGE_DRAWABLES[position])
         ViewCompat.setTransitionName(imageView, LARGE_IMAGE)
+
+        setEnterSharedElementCallback(object :androidx.core.app.SharedElementCallback() {
+            override fun onMapSharedElements(names: MutableList<String>?,
+                sharedElements: MutableMap<String, View>?) {
+                super.onMapSharedElements(names, sharedElements)
+                Log.d("xxx", "LargeFragment, names = $names, sharedElements = $sharedElements")
+                sharedElements!![names!![0]] = view.findViewById(R.id.imageView)
+
+            }
+        })
     }
 
     companion object {

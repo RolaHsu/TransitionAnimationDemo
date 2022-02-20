@@ -12,13 +12,12 @@ const val B_IMAGE = "B_IMAGE"
 
 // recyclerView sample
 const val RECYCLERVIEW_IMAGE = "RECYCLERVIEW_IMAGE"
-var GRID_POSITION = 0
+var GRID_POSITION: Int? = null
 
 internal object ImageData {
 
     @DrawableRes
-    val IMAGE_DRAWABLES = intArrayOf(
-        R.drawable.dog1,
+    val IMAGE_DRAWABLES = intArrayOf(R.drawable.dog1,
         R.drawable.cat,
         R.drawable.cat2,
         R.drawable.dog2,
